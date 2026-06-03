@@ -6,7 +6,7 @@
 
 #include "conversions.h"
 
-float sensirion_common_bytes_to_float(const uint8_t *bytes)
+float sensirion_conversions_bytes_to_float(const uint8_t *bytes)
 {
 	union {
 		uint32_t u32_value;
@@ -17,7 +17,7 @@ float sensirion_common_bytes_to_float(const uint8_t *bytes)
 	return tmp.float32;
 }
 
-void sensirion_common_float_to_bytes(const float value, uint8_t *bytes)
+void sensirion_conversions_float_to_bytes(const float value, uint8_t *bytes)
 {
 	union {
 		uint32_t u32_value;
@@ -27,7 +27,7 @@ void sensirion_common_float_to_bytes(const float value, uint8_t *bytes)
 	sys_put_be32(tmp.u32_value, bytes);
 }
 
-void sensirion_common_to_integer(const uint8_t *source, uint8_t *destination, INT_TYPE int_type,
+void sensirion_conversions_to_integer(const uint8_t *source, uint8_t *destination, INT_TYPE int_type,
 				 uint8_t data_length)
 {
 	if (data_length > int_type) {

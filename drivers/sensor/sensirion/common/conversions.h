@@ -29,11 +29,11 @@ extern "C" {
  * conversions from byte arrays to basic data types.
  * Since Zephyr does not provide a function for converting big-endian
  * (MSB-first) byte arrays to floating-point values, the function
- * sensirion_common_bytes_to_float() is
+ * sensirion_conversions_bytes_to_float() is
  * provided for this purpose.
  * To maintain a consistent naming scheme for all functions that convert byte
  * arrays to basic types, the functions
- * sensirion_common_bytes_to_<integer>() are also provided,
+ * sensirion_conversions_bytes_to_<integer>() are also provided,
  * even in cases where Zephyr already provides equivalent functions for
  * specific integer
  * types.
@@ -49,14 +49,14 @@ extern "C" {
  * @param bytes An array of at least four bytes (MSB first)
  * @return      The byte array represented as float
  */
-float sensirion_common_bytes_to_float(const uint8_t *bytes);
+float sensirion_conversions_bytes_to_float(const uint8_t *bytes);
 
-#define sensirion_common_bytes_to_int16_t(bytes)  ((int16_t)sys_get_be16(bytes))
-#define sensirion_common_bytes_to_uint16_t(bytes) ((uint16_t)sys_get_be16(bytes))
-#define sensirion_common_bytes_to_int32_t(bytes)  ((int32_t)sys_get_be32(bytes))
-#define sensirion_common_bytes_to_uint32_t(bytes) ((uint32_t)sys_get_be32(bytes))
-#define sensirion_common_bytes_to_int64_t(bytes)  ((int64_t)sys_get_be64(bytes))
-#define sensirion_common_bytes_to_uint64_t(bytes) ((uint64_t)sys_get_be64(bytes))
+#define sensirion_conversions_bytes_to_int16_t(bytes)  ((int16_t)sys_get_be16(bytes))
+#define sensirion_conversions_bytes_to_uint16_t(bytes) ((uint16_t)sys_get_be16(bytes))
+#define sensirion_conversions_bytes_to_int32_t(bytes)  ((int32_t)sys_get_be32(bytes))
+#define sensirion_conversions_bytes_to_uint32_t(bytes) ((uint32_t)sys_get_be32(bytes))
+#define sensirion_conversions_bytes_to_int64_t(bytes)  ((int64_t)sys_get_be64(bytes))
+#define sensirion_conversions_bytes_to_uint64_t(bytes) ((uint64_t)sys_get_be64(bytes))
 
 /** @} */
 
@@ -77,7 +77,7 @@ float sensirion_common_bytes_to_float(const uint8_t *bytes);
  * @param destination_size Size of the destination integer in bytes.
  * @param data_length Number of available bytes in source to copy.
  */
-void sensirion_common_to_integer(const uint8_t *source, uint8_t *destination,
+void sensirion_conversions_to_integer(const uint8_t *source, uint8_t *destination,
 				 size_t destination_size, uint8_t data_length);
 
 #ifdef __cplusplus
