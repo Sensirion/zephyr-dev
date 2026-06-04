@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Sensirion
+# Copyright (c) 2026 Sensirion
 #
 # SPDX-License-Identifier: Apache-2.0
 #

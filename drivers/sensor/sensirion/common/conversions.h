@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Sensirion
+ * Copyright (c) 2026 Sensirion
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -49,7 +49,7 @@ extern "C" {
  * @param bytes An array of at least four bytes (MSB first)
  * @return      The byte array represented as float
  */
-float sensirion_conversions_bytes_to_float(const uint8_t *bytes);
+float sensirion_conversions_bytes_to_float(const uint8_t *const bytes);
 
 #define sensirion_conversions_bytes_to_int16_t(bytes)  ((int16_t)sys_get_be16(bytes))
 #define sensirion_conversions_bytes_to_uint16_t(bytes) ((uint16_t)sys_get_be16(bytes))
@@ -77,8 +77,8 @@ float sensirion_conversions_bytes_to_float(const uint8_t *bytes);
  * @param destination_size Size of the destination integer in bytes.
  * @param data_length Number of available bytes in source to copy.
  */
-void sensirion_conversions_to_integer(const uint8_t *source, uint8_t *destination,
-				 size_t destination_size, uint8_t data_length);
+void sensirion_conversions_to_integer(const uint8_t *const source, uint8_t *const destination,
+				      size_t destination_size, uint8_t data_length);
 
 #ifdef __cplusplus
 }
